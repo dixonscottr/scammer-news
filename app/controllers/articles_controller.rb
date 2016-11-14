@@ -23,6 +23,8 @@ class ArticlesController < ApplicationController
     @comment = Comment.new(article: @article)
     if @article
       render 'show'
+    else
+      render_404
     end
   end
 
