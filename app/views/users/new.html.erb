@@ -1,0 +1,23 @@
+<%= form_for @user, html: {class: "container-fluid"} do |f| %>
+  <% if @user.errors.any? %>
+    <div id='error_messages'>
+      <h2><%= pluralize(@user.errors.count, 'error') %> prevented this user from being saved in the system</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='form-group'>
+    <%= f.label :username %> <br />
+    <%= f.text_field :username %>
+  </div>
+  <div class='form-group'>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class='form-group'>
+    <%= f.submit 'Sign me up' %>
+  </div>
+<% end %>

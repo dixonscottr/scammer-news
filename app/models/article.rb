@@ -5,7 +5,7 @@ class Article < ApplicationRecord
 
   validates :title, length: {minimum: 5}, presence: true, uniqueness: true
   validates :link, presence: true, uniqueness: true
-  validates :link, url: true
+  # validates :link, :link => true
 
 
 end

@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'valid_url'
 
+gem 'better_errors'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
