@@ -6,7 +6,12 @@
   <h5>Comments:</h5>
   <ul>
   <% @article.comments.each do |comment| %>
-    <li>'<%= comment.content %>'  - <%= comment.commenter.username %></li>
+    <li>'<%= comment.content %>'  - <%= comment.commenter.username %>
+      <% if logged_in? && owns_comment?(comment) %>
+      <a class="btn btn-primary btn-sm" href='<%= edit_article_comment_path(@article, comment) %>' role="button">Edit</a>
+      <%= link_to "delete", article_comment_path(@article, comment), method: :delete, class: 'btn btn-primary btn-sm' %>
+      <% end %>
+    </li>
   <% end %>
   </ul>
 <% end %>
@@ -26,6 +31,14 @@
   </div>
 
   <% end %>
+
+<% end %>
+
+<% if logged_in? && owns_article?(@article) %>
+<a class="btn btn-primary" href='<%= edit_article_path(@article) %>' role="button">edit</a>
+<%= link_to "delete", article_path(@article), method: :delete, class: 'btn btn-primary' %>
+
+
 
 <% end %>
 
