@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      flash[:notice] = "Welcome to the site"
+      flash[:notice] = "Welcome to the site, your presence is valued"
       session[:user_id] = @user.id
       redirect_to '/'
     else
